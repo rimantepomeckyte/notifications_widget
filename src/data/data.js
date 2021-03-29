@@ -26,20 +26,20 @@ export const notifics = [{
         created_at: '2020-03-27'
     },
     {
-        id:4 ,
-        title: "kljsld",
-        description: "James Bond write you an email. Subject: 'Greetings from Canada!'",
-        priority_level: 1,
-        priority: "low",
+        id: 4,
+        title: "You got a new email!",
+        description: "Sarah Jones sent you an email. Subject: 'Very important meeting with a client'",
+        priority_level: 3,
+        priority: "high",
         type: 'info',
         created_at: '2020-03-27'
     },
     {
         id: 5,
-        title: "48lk",
-        description: "James Bond write you an email. Subject: 'Greetings from Canada!'",
-        priority_level: 1,
-        priority: "low",
+        title: "10:00 AM Tuesday Planned meeting with your Boss",
+        description: "Discussion about new products, daily routine plans and other stuff",
+        priority_level: 2,
+        priority: "normal",
         type: 'success',
         created_at: '2020-03-27'
     },
@@ -47,18 +47,18 @@ export const notifics = [{
         id: 6,
         title: "You got a new email!",
         description: "James Bond write you an email. Subject: 'Greetings from Canada!'",
-        priority_level: 2,
+        priority_level: 1,
         priority: "low",
-        type: 'danger',
+        type: 'warning',
         created_at: '2020-03-27'
     },
     {
         id: 7,
-        title: "kdjaj",
+        title: "11:30 AM Tuesday coffee time with Judy",
         description: "James Bond write you an email. Subject: 'Greetings from Canada!'",
         priority_level: 3,
-        priority: "low",
-        type: 'info',
+        priority: "high",
+        type: 'success',
         created_at: '2020-03-27'
     }];
 

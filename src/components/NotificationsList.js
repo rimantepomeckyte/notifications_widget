@@ -3,6 +3,7 @@ import {Button, Col, Container, FlexboxGrid, Modal} from "rsuite";
 import {notifics} from '../data/data';
 import FilteredNotifications from "./FilteredNotifications";
 import FilterSortBar from "./FilterSortBar";
+import Pagination from "./Pagination";
 
 const NotificationsList = () => {
     const [notifications, setNotifications] = useState(notifics);
@@ -11,6 +12,8 @@ const NotificationsList = () => {
     const [filteredNotifications, setFilteredNotifications] = useState([]);
     const [selectedType, setSelectedType] = useState('all');
     const [markedRead, setMarkedRead] = useState(false);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [perPage] = useState(5);
 
     const onNotificationRemove = (notification) => {
         setNotifications(notifications.filter((x) => x !== notification));
@@ -56,6 +59,16 @@ const NotificationsList = () => {
         }
     }
 
+    const indexOfLastPost = currentPage * perPage;
+    const indexOfFirstPage = indexOfLastPost - perPage;
+    const currentNotifics= notifications.slice(indexOfFirstPage, indexOfLastPost);
+
+    const paginate = (e, pageNumber) => {
+        e.preventDefault();
+        window.scroll(0,0);
+        setCurrentPage(pageNumber);
+    }
+
     return (
         <Container>
             <h1 className="align-self-center">My list of notifications!</h1>
@@ -69,7 +82,7 @@ const NotificationsList = () => {
                                        markAsRead={markAsRead}/> : false}
             {notifications.length ?
                 <>
-                    {notifications.map(notification => (
+                    {currentNotifics.map(notification => (
                         <FlexboxGrid className="show-grid my-2" justify="center" key={notification.id}>
                             <button onClick={() => markAsRead(notification.id)}
                                     className={`text-warning bg-transparent align-self-center`}
@@ -91,6 +104,7 @@ const NotificationsList = () => {
                         </FlexboxGrid>
                     ))}
                 </> : false}
+            <Pagination perPage={perPage} paginate={paginate} totalNotifications={notifications.length} />
             <Modal show={fullNotification} onHide={closeNotification}>
                 <Modal.Header>
                     <Modal.Title>{selected.title}</Modal.Title>
