@@ -6,7 +6,6 @@ export const notifics = [{
     priority: "normal",
     type: 'success',
     created_at: '2021-03-25',
-    read: false,
 },
     {
         id: 2,
@@ -16,7 +15,6 @@ export const notifics = [{
         priority: "high",
         type: 'warning',
         created_at: '2021-03-25',
-        read: false,
     },
     {
         id: 3,
@@ -26,7 +24,6 @@ export const notifics = [{
         priority: "low",
         type: 'danger',
         created_at: '2020-03-27',
-        read: false,
     },
     {
         id: 4,
@@ -36,7 +33,6 @@ export const notifics = [{
         priority: "high",
         type: 'info',
         created_at: '2020-03-27',
-        read: false,
     },
     {
         id: 5,
@@ -46,7 +42,6 @@ export const notifics = [{
         priority: "normal",
         type: 'success',
         created_at: '2020-03-27',
-        read: false,
     },
     {
         id: 6,
@@ -56,7 +51,6 @@ export const notifics = [{
         priority: "low",
         type: 'warning',
         created_at: '2020-03-27',
-        read: false,
     },
     {
         id: 7,
@@ -66,7 +60,6 @@ export const notifics = [{
         priority: "high",
         type: 'success',
         created_at: '2020-03-27',
-        read: false,
     }];
 
 export const types = ['danger', 'warning', 'info', 'success'];
