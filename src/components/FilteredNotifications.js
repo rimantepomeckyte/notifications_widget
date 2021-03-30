@@ -2,8 +2,7 @@ import React from 'react';
 import {Button, Col, FlexboxGrid} from "rsuite";
 
 const FilteredNotifications = ({
-                                   notifications, openNotification, onNotificationRemove, closeNotification,
-                                   selected, fullNotification, markAsRead
+                                   notifications, openNotification, onNotificationRemove, markAsRead
                                }) => {
     return (
         <div>

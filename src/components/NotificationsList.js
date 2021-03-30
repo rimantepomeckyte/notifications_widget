@@ -49,23 +49,23 @@ const NotificationsList = () => {
     const markAsRead = (id) => {
         const notId = document.getElementById(id)
         console.log(notId);
-        console.log(markedRead)
+        console.log(markedRead);
         if (markedRead === false) {
-            setMarkedRead(true);
+            setMarkedRead(state => !state);//reikia išanalizuoti ir pataisyti kad įsimintų buvusią state reikšmę
             notId.style.opacity = "0.5";
-        } else {
-            setMarkedRead(false);
+        } else if (markedRead === true) {
+            setMarkedRead(state => !state);
             notId.style.opacity = "1";
         }
     }
 
     const indexOfLastPost = currentPage * perPage;
     const indexOfFirstPage = indexOfLastPost - perPage;
-    const currentNotifics= notifications.slice(indexOfFirstPage, indexOfLastPost);
+    const currentNotifics = notifications.slice(indexOfFirstPage, indexOfLastPost);
 
     const paginate = (e, pageNumber) => {
         e.preventDefault();
-        window.scroll(0,0);
+        window.scroll(0, 0);
         setCurrentPage(pageNumber);
     }
 
@@ -77,8 +77,7 @@ const NotificationsList = () => {
                            settingType={settingType} selectedType={selectedType}/>
             {filteredNotifications.length ?
                 <FilteredNotifications notifications={filteredNotifications} openNotification={openNotification}
-                                       onNotificationRemove={onNotificationRemove} closeNotification={closeNotification}
-                                       fullNotification={fullNotification} selected={selected}
+                                       onNotificationRemove={onNotificationRemove}
                                        markAsRead={markAsRead}/> : false}
             {notifications.length ?
                 <>
@@ -104,7 +103,7 @@ const NotificationsList = () => {
                         </FlexboxGrid>
                     ))}
                 </> : false}
-            <Pagination perPage={perPage} paginate={paginate} totalNotifications={notifications.length} />
+            <Pagination perPage={perPage} paginate={paginate} totalNotifications={notifications.length}/>
             <Modal show={fullNotification} onHide={closeNotification}>
                 <Modal.Header>
                     <Modal.Title>{selected.title}</Modal.Title>
